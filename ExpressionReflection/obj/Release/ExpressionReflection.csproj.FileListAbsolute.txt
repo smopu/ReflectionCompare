@@ -1,0 +1,7 @@
+D:\a\ReflectionCompare\ExpressionReflection\bin\Release\ExpressionReflection.dll.config
+D:\a\ReflectionCompare\ExpressionReflection\bin\Release\ExpressionReflection.dll
+D:\a\ReflectionCompare\ExpressionReflection\bin\Release\ExpressionReflection.pdb
+D:\a\ReflectionCompare\ExpressionReflection\obj\Release\ExpressionReflection.csproj.AssemblyReference.cache
+D:\a\ReflectionCompare\ExpressionReflection\obj\Release\ExpressionReflection.csproj.CoreCompileInputs.cache
+D:\a\ReflectionCompare\ExpressionReflection\obj\Release\ExpressionReflection.dll
+D:\a\ReflectionCompare\ExpressionReflection\obj\Release\ExpressionReflection.pdb

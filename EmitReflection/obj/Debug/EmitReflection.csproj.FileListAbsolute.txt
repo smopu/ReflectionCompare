@@ -1,0 +1,7 @@
+D:\a\ReflectionCompare\EmitReflection\bin\Debug\EmitReflection.dll.config
+D:\a\ReflectionCompare\EmitReflection\bin\Debug\EmitReflection.dll
+D:\a\ReflectionCompare\EmitReflection\bin\Debug\EmitReflection.pdb
+D:\a\ReflectionCompare\EmitReflection\obj\Debug\EmitReflection.csproj.AssemblyReference.cache
+D:\a\ReflectionCompare\EmitReflection\obj\Debug\EmitReflection.csproj.CoreCompileInputs.cache
+D:\a\ReflectionCompare\EmitReflection\obj\Debug\EmitReflection.dll
+D:\a\ReflectionCompare\EmitReflection\obj\Debug\EmitReflection.pdb
