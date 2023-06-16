@@ -11,3 +11,16 @@ D:\a\ReflectionCompare\ReflectionCompare\bin\Debug\DynamicCustomReflection.dll
 D:\a\ReflectionCompare\ReflectionCompare\bin\Debug\PtrReflection.dll
 D:\a\ReflectionCompare\ReflectionCompare\bin\Debug\UnsafeApplication.dll
 D:\a\ReflectionCompare\ReflectionCompare\bin\Debug\ExpressionReflection.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\ReflectionCompare.exe.config
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\ReflectionCompare.exe
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\ReflectionCompare.pdb
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\DynamicCustomReflection.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\EmitReflection.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\ExpressionReflection.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\PtrReflection.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\bin\Debug\UnsafeApplication.dll
+D:\a\bt\ReflectionCompare\ReflectionCompare\obj\Debug\ReflectionCompare.csproj.AssemblyReference.cache
+D:\a\bt\ReflectionCompare\ReflectionCompare\obj\Debug\ReflectionCompare.csproj.CoreCompileInputs.cache
+D:\a\bt\ReflectionCompare\ReflectionCompare\obj\Debug\ReflectionCompare.csproj.CopyComplete
+D:\a\bt\ReflectionCompare\ReflectionCompare\obj\Debug\ReflectionCompare.exe
+D:\a\bt\ReflectionCompare\ReflectionCompare\obj\Debug\ReflectionCompare.pdb

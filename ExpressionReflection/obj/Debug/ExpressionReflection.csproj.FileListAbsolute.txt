@@ -5,3 +5,10 @@ D:\a\ReflectionCompare\ExpressionReflection\bin\Debug\ExpressionReflection.dll
 D:\a\ReflectionCompare\ExpressionReflection\bin\Debug\ExpressionReflection.pdb
 D:\a\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.dll
 D:\a\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.pdb
+D:\a\bt\ReflectionCompare\ExpressionReflection\bin\Debug\ExpressionReflection.dll.config
+D:\a\bt\ReflectionCompare\ExpressionReflection\bin\Debug\ExpressionReflection.dll
+D:\a\bt\ReflectionCompare\ExpressionReflection\bin\Debug\ExpressionReflection.pdb
+D:\a\bt\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.csproj.AssemblyReference.cache
+D:\a\bt\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.csproj.CoreCompileInputs.cache
+D:\a\bt\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.dll
+D:\a\bt\ReflectionCompare\ExpressionReflection\obj\Debug\ExpressionReflection.pdb

@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace EmitReflection 
 {
-    public class EmitWarpTypeFieldAndProperty
+    public class EmitWrapperTypeFieldAndProperty
     {
         public Func<object, object> getValue;
         public Action<object, object> setValue;
@@ -19,13 +19,13 @@ namespace EmitReflection
         public Delegate setValueDelegate;
     }
 
-    public class EmitWarpType
+    public class EmitWrapperType
     {
-        Dictionary<string, EmitWarpTypeFieldAndProperty> all = new Dictionary<string, EmitWarpTypeFieldAndProperty>();
+        Dictionary<string, EmitWrapperTypeFieldAndProperty> all = new Dictionary<string, EmitWrapperTypeFieldAndProperty>();
         public Type type { get; private set; }
-        public EmitWarpTypeFieldAndProperty GetEmitWarp(string name)
+        public EmitWrapperTypeFieldAndProperty GetEmitWarp(string name)
         {
-            EmitWarpTypeFieldAndProperty cache;
+            EmitWrapperTypeFieldAndProperty cache;
             if (all.TryGetValue(name, out cache))
             {
                 return cache;
@@ -33,7 +33,7 @@ namespace EmitReflection
             return null;
         }
 
-        public EmitWarpType(Type type)
+        public EmitWrapperType(Type type)
         {
             this.type = type;
             FieldInfo[] typeAddrFieldsNow = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
@@ -45,7 +45,7 @@ namespace EmitReflection
                 }
                 else
                 {
-                    EmitWarpTypeFieldAndProperty d = all[item.Name] = new EmitWarpTypeFieldAndProperty();
+                    EmitWrapperTypeFieldAndProperty d = all[item.Name] = new EmitWrapperTypeFieldAndProperty();
                     d.getValue = ILUtil.CreateGetValue(type, item.Name);
                     d.setValue = ILUtil.CreateSetValue(type, item.Name);
                     d.getValueDelegate = ILUtil.CreateGetValueDelegate(type, item.Name);
@@ -62,7 +62,7 @@ namespace EmitReflection
                     {
                         if (!all.ContainsKey(item.Name))
                         {
-                            EmitWarpTypeFieldAndProperty d = all[item.Name] = new EmitWarpTypeFieldAndProperty();
+                            EmitWrapperTypeFieldAndProperty d = all[item.Name] = new EmitWrapperTypeFieldAndProperty();
                             d.getValue = ILUtil.CreateGetValue(type, item.Name);
                             d.setValue = ILUtil.CreateSetValue(type, item.Name);
                             d.getValueDelegate = ILUtil.CreateGetValueDelegate(type, item.Name);
@@ -86,7 +86,7 @@ namespace EmitReflection
                 {
                     if (item.Name != "Item")
                     {
-                        EmitWarpTypeFieldAndProperty d = all[item.Name] = new EmitWarpTypeFieldAndProperty();
+                        EmitWrapperTypeFieldAndProperty d = all[item.Name] = new EmitWrapperTypeFieldAndProperty();
                         if (item.GetMethod != null)
                         {
                             d.getValue = ILUtil.CreateGetValue(type, item.Name);
@@ -107,7 +107,7 @@ namespace EmitReflection
                 {
                     if (item.Name != "Item")
                     {
-                        EmitWarpTypeFieldAndProperty d = all[item.Name] = new EmitWarpTypeFieldAndProperty();
+                        EmitWrapperTypeFieldAndProperty d = all[item.Name] = new EmitWrapperTypeFieldAndProperty();
                         if (item.GetMethod != null)
                         {
                             d.getValue = ILUtil.CreateGetValue(type, item.Name);

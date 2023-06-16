@@ -5,3 +5,10 @@ D:\a\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.csproj.Assembly
 D:\a\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.csproj.CoreCompileInputs.cache
 D:\a\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.dll
 D:\a\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.pdb
+D:\a\bt\ReflectionCompare\EmitReflection\bin\Release\EmitReflection.dll.config
+D:\a\bt\ReflectionCompare\EmitReflection\bin\Release\EmitReflection.dll
+D:\a\bt\ReflectionCompare\EmitReflection\bin\Release\EmitReflection.pdb
+D:\a\bt\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.csproj.AssemblyReference.cache
+D:\a\bt\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.csproj.CoreCompileInputs.cache
+D:\a\bt\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.dll
+D:\a\bt\ReflectionCompare\EmitReflection\obj\Release\EmitReflection.pdb

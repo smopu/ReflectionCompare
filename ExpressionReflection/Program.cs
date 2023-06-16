@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace ExpressionReflection
 {
-    public class ExpressionWarpType
+    public class ExpressionWrapperType
     {
         Dictionary<string, ExpressionWrapper> all = new Dictionary<string, ExpressionWrapper>();
         public Type type { get; private set; }
@@ -19,7 +19,7 @@ namespace ExpressionReflection
             return null;
         }
 
-        public ExpressionWarpType(Type type)
+        public ExpressionWrapperType(Type type)
         {
             this.type = type;
             FieldInfo[] typeAddrFieldsNow = type.GetFields(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);

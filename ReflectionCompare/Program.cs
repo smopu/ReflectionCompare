@@ -102,11 +102,13 @@ namespace ReflectionCompare
             string v2;
             Vector3 v3 = new Vector3();
 
-            ExpressionWarpType expressionWarpType = new ExpressionWarpType(typeof(MyClass));
 
-            TypeAddrReflectionWrapper wrapper = new TypeAddrReflectionWrapper(typeof(MyClass));
+            TypeAddrReflectionWrapper reflectionWrapper = new TypeAddrReflectionWrapper(typeof(MyClass));
 
-            EmitWarpType emitWarpType = new EmitWarpType(typeof(MyClass));
+            EmitWrapperType emitWrapperType = new EmitWrapperType(typeof(MyClass));
+
+            ExpressionWrapperType expressionWrapperType = new ExpressionWrapperType(typeof(MyClass));
+
 
             //原生
             oTime.Reset(); oTime.Start();
@@ -155,7 +157,7 @@ namespace ReflectionCompare
                 string name = nameof(obj.one);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetFieldValue(handleVoid, 13);
                     v1 = (int)typeAddr.ClassGetFieldValue(handleVoid);
                 }
@@ -163,7 +165,7 @@ namespace ReflectionCompare
                 name = nameof(obj.str);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetFieldValue(handleVoid, "sad2");
                     v2 = (string)typeAddr.ClassGetFieldValue(handleVoid);
                 }
@@ -171,7 +173,7 @@ namespace ReflectionCompare
                 name = nameof(obj.point);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetFieldValue(handleVoid, new Vector3(1.1f, 2.2f, 3.3f));
                     v3 = (Vector3)typeAddr.ClassGetFieldValue(handleVoid);
                 }
@@ -184,17 +186,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.one);
-                EmitWarpTypeFieldAndProperty valueWrap = emitWarpType.GetEmitWarp(name);
+                var valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, 13);
                 v1 = (int)valueWrap.getValue(obj);
 
                 name = nameof(obj.str);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, "sad2");
                 v2 = (string)valueWrap.getValue(obj);
 
                 name = nameof(obj.point);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, new Vector3(1.1f, 2.2f, 3.3f));
                 v3 = (Vector3)valueWrap.getValue(obj);
             }
@@ -208,17 +210,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.one);
-                var valueWrap = expressionWarpType.GetWarp(name);
+                var valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, 101);
                 v1 = (int)valueWrap.getValue(obj);
 
                 name = nameof(obj.str);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, "abcd");
                 v2 = (string)valueWrap.getValue(obj);
 
                 name = nameof(obj.point);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, new Vector3(14.5f, 1995.8f, 7.92f));
                 v3 = (Vector3)valueWrap.getValue(obj);
             }
@@ -260,7 +262,7 @@ namespace ReflectionCompare
                 string name = nameof(obj.One);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetPropertyValue(handleVoid, 13);
                     v1 = (int)typeAddr.ClassGetPropertyValue(handleVoid);
                 }
@@ -268,7 +270,7 @@ namespace ReflectionCompare
                 name = nameof(obj.Str);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetPropertyValue(handleVoid, "sad2");
                     v2 = (string)typeAddr.ClassGetPropertyValue(handleVoid);
                 }
@@ -276,7 +278,7 @@ namespace ReflectionCompare
                 name = nameof(obj.Point);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.ClassSetPropertyValue(handleVoid, new Vector3(1.1f, 2.2f, 3.3f));
                     v3 = (Vector3)typeAddr.ClassGetPropertyValue(handleVoid);
                 }
@@ -288,17 +290,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.One);
-                EmitWarpTypeFieldAndProperty valueWrap = emitWarpType.GetEmitWarp(name);
+                EmitWrapperTypeFieldAndProperty valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, 13);
                 v1 = (int)valueWrap.getValue(obj);
 
                 name = nameof(obj.Str);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, "sad2");
                 v2 = (string)valueWrap.getValue(obj);
 
                 name = nameof(obj.Point);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 valueWrap.setValue(obj, new Vector3(1.1f, 2.2f, 3.3f));
                 v3 = (Vector3)valueWrap.getValue(obj);
             }
@@ -311,17 +313,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.One);
-                var valueWrap = expressionWarpType.GetWarp(name);
+                var valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, 113);
                 v1 = (int)valueWrap.getValue(obj);
 
                 name = nameof(obj.Str);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, "aad2");
                 v2 = (string)valueWrap.getValue(obj);
 
                 name = nameof(obj.Point);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 valueWrap.setValue(obj, new Vector3(14.5f, 1995.8f, 7.92f));
                 v3 = (Vector3)valueWrap.getValue(obj);
             }
@@ -363,7 +365,7 @@ namespace ReflectionCompare
                 string name = nameof(obj.one);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     *(int*)(*handleByte + typeAddr.offset) = 14;
                     v1 = *(int*)(*handleByte + typeAddr.offset);
                 }
@@ -371,7 +373,7 @@ namespace ReflectionCompare
                 name = nameof(obj.str);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     GeneralTool.SetObject(*handleByte + typeAddr.offset, "sa32");
                     v2 = (string)GeneralTool.VoidPtrToObject(*(void**)(*handleByte + typeAddr.offset));
                 }
@@ -379,7 +381,7 @@ namespace ReflectionCompare
                 name = nameof(obj.point);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     //typeAddr.ClassWriteStruct<Vector3>(handleVoid, new Vector3(1.1f, 2.2f, 3.3f));//赋值
                     //v3 = typeAddr.ClassReadStruct<Vector3>(handleVoid);//取值
                     var setData = new Vector3(1.1f, 2.2f, 3.3f);
@@ -395,17 +397,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.one);
-                EmitWarpTypeFieldAndProperty valueWrap = emitWarpType.GetEmitWarp(name);
+                EmitWrapperTypeFieldAndProperty valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass,int>)valueWrap.setValueDelegate)(obj, 13);
                 v1 = ((Func<MyClass,int>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.str);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass, string>)valueWrap.setValueDelegate)(obj, "a4d2");
                 v2 = ((Func<MyClass, string>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.point);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass, Vector3>)valueWrap.setValueDelegate)(obj, new Vector3(1.1f, 2.2f, 3.3f));
                 v3 = ((Func<MyClass, Vector3>)valueWrap.getValueDelegate)(obj);
             }
@@ -416,17 +418,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.one);
-                var valueWrap = expressionWarpType.GetWarp(name);
+                var valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, int>)valueWrap.setValueDelegate)(obj, 13);
                 v1 = ((Func<MyClass, int>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.str);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, string>)valueWrap.setValueDelegate)(obj, "a4d2");
                 v2 = ((Func<MyClass, string>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.point);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, Vector3>)valueWrap.setValueDelegate)(obj, new Vector3(1.1f, 2.2f, 3.3f));
                 v3 = ((Func<MyClass, Vector3>)valueWrap.getValueDelegate)(obj);
             }
@@ -446,7 +448,7 @@ namespace ReflectionCompare
                 string name = nameof(obj.One);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.propertyDelegateItem.setInt32(*handleVoid, 18);
                     v1 = typeAddr.propertyDelegateItem.getInt32(*handleVoid);
                 }
@@ -454,7 +456,7 @@ namespace ReflectionCompare
                 name = nameof(obj.Str);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
                     typeAddr.propertyDelegateItem.setString(*handleVoid, "sa32");
                     v2 = typeAddr.propertyDelegateItem.getString(*handleVoid);
                 }
@@ -462,7 +464,7 @@ namespace ReflectionCompare
                 name = nameof(obj.Point);
                 fixed (char* p = name)
                 {
-                    TypeAddrFieldAndProperty typeAddr = wrapper.Find(p, name.Length);
+                    TypeAddrFieldAndProperty typeAddr = reflectionWrapper.Find(p, name.Length);
 
                     //typeAddr.propertyDelegateItem.setObject(*handleVoid, new Vector3(1.1f, 2.2f, 3.3f));
                     //v3 = (Vector3)typeAddr.propertyDelegateItem.getObject(*handleVoid);
@@ -478,17 +480,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.One);
-                EmitWarpTypeFieldAndProperty valueWrap = emitWarpType.GetEmitWarp(name);
+                EmitWrapperTypeFieldAndProperty valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass, int>)valueWrap.setValueDelegate)(obj, 13);
                 v1 = ((Func<MyClass, int>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.Str);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass, string>)valueWrap.setValueDelegate)(obj, "sad2");
                 v2 = ((Func<MyClass, string>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.Point);
-                valueWrap = emitWarpType.GetEmitWarp(name);
+                valueWrap = emitWrapperType.GetEmitWarp(name);
                 ((Action<MyClass, Vector3>)valueWrap.setValueDelegate)(obj, new Vector3(1.1f, 2.2f, 3.3f));
                 v3 = ((Func<MyClass, Vector3>)valueWrap.getValueDelegate)(obj);
             }
@@ -500,17 +502,17 @@ namespace ReflectionCompare
             for (int d = 0; d < testCount; d++)
             {
                 string name = nameof(obj.One);
-                var valueWrap = expressionWarpType.GetWarp(name);
+                var valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, int>)valueWrap.setValueDelegate)(obj, -3);
                 v1 = ((Func<MyClass, int>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.Str);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, string>)valueWrap.setValueDelegate)(obj, "a4d2");
                 v2 = ((Func<MyClass, string>)valueWrap.getValueDelegate)(obj);
 
                 name = nameof(obj.Point);
-                valueWrap = expressionWarpType.GetWarp(name);
+                valueWrap = expressionWrapperType.GetWarp(name);
                 ((Action<MyClass, Vector3>)valueWrap.setValueDelegate)(obj, new Vector3(-1.1f, 2.2f, -3.3f));
                 v3 = ((Func<MyClass, Vector3>)valueWrap.getValueDelegate)(obj);
             }
